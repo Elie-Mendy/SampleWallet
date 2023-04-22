@@ -99,20 +99,27 @@ function App() {
 
   return (
     <div className='App'>
-      { error && <p className='erroe'>{error}</p>}
-      <h2>{ balance / 10 ** 18} eth</h2>
-      <div className='wallet__flex'>
-      <div className='walletG'>
-          <h3>Send Ethers</h3>
-          <input type='text' placeholder='Amount to send' onChange={updateAmountSend}></input>
-          <button onClick={transfer}>Envoyer</button>
+      <div className='container'>
+        <div className='logo'>
+          <i className="fa-brands fa-ethereum"></i>
+        </div>
+        { error && <p className='error'>{error}</p>}
+        { success && <p className='success'>{success}</p>}
+        <h2>{ balance / 10 ** 18} <span className='eth'>eth</span></h2>
+        <div className='wallet__flex'>
+        <div className='walletG'>
+            <h3>Send Ethers</h3>
+            <input type='text' placeholder='Amount to send' onChange={updateAmountSend}></input>
+            <button onClick={transfer}>Envoyer</button>
+          </div>
+
+          <div className='walletD'>
+            <h3>Withdraw Ethers</h3>
+            <input type='text' placeholder='Amount to withdraw' onChange={updateAmountWithdraw}></input>
+            <button onClick={withdraw}>Envoyer</button>
+          </div>
         </div>
 
-        <div className='walletD'>
-          <h3>Withdraw Ethers</h3>
-          <input type='text' placeholder='Amount to withdraw' onChange={updateAmountWithdraw}></input>
-          <button onClick={withdraw}>Envoyer</button>
-        </div>
       </div>
     </div>
   );
